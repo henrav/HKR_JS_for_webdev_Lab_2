@@ -564,13 +564,15 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: inherit;
     font: inherit;
     box-sizing: border-box;
+
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: 2px solid var(--tertiary-bg-color);
-    outline-offset: 2px;
+    outline: 1px solid var(--tertiary-bg-color);
+    outline-offset: 0;
 }
+
 
 .contact-button {
     padding: 0.5rem 1.25rem;
@@ -604,13 +606,35 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin-top: 0.25rem;
 }
 
+.form-group input.valid-outline:focus,
+.form-group textarea.valid-outline:focus{
+    outline: 1px solid #069f00 !important;
+    outline-offset: 0 !important;
+}
+
+.form-group input.invalid-outline:focus,
+.form-group textarea.invalid-outline:focus{
+    outline: 1px solid #ef0000 !important;
+    outline-offset: 0 !important;
+}
+
+.form-group input.valid-outline,
+.form-group textarea.valid-outline{
+    outline: none !important;
+}
+
+.invalid-outline{
+    outline: 1px solid #ef0000 !important;
+    outline-offset: 0 !important;
+}
 
 
-
-
-
-
-
+.error-message{
+    display: block;
+    background-color: red;
+    padding: 5rem;
+    color: black;
+}
 
 
 
