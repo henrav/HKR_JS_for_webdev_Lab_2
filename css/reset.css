@@ -1,0 +1,176 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+:root {
+
+    --primary-bg-color: #070b18;
+    --primary-color: #ffffff;
+    --primary-bg-hover-color:      #0b1022;
+
+    --secondary-bg-color: #121726;
+    --secondary-color:    #cbd3f0;
+    --secondary-bg-hover-color:    #181d32;
+
+    --tertiary-bg-color: #1B6EF3;
+    --tertiary-color:      #f9fafb;
+    --tertiary-bg-hover-color: #215ad5;
+
+    --quaternary-bg-color: #14b8a6;
+    --quaternary-color:    #05101a;
+    --quaternary-bg-hover-color:   #0d9488;
+
+    --border-color:      #23283a;
+    --muted-text-color:  #9ca3b8;
+    --danger-color:      #f97373;
+    --border-color-hover-color:    #3a425e;
+    --muted-text-hover-color:      #e5e7f5;
+    --danger-hover-color:          #fb4c4c;
+
+    --star-size: 50%;
+
+    --font-family: sans-serif;
+}
+
+
+
+* {
+    border-radius: 0.25rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+body a {
+    font-family: var(--font-family);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.5em;
+    font-family: var(--font-family);
+    color: var(--primary-color);
+}
+
+h1{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+p, span {
+    margin: 0 0 1em;
+    color: var(--muted-text-color);
+}
+
+
+a {
+    color: var(--tertiary-bg-color);
+    text-decoration: none;
+    font-family: var(--font-family);
+    padding: 0.2rem 0.4rem;
+}
+a:hover {
+    text-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+    transform: scale(1.03) !important;
+    transition: transform 0.2s ease !important;
+    background-color: var(--tertiary-bg-hover-color);
+}
+
+
+
+
+button {
+    background-color: var(--tertiary-bg-color);
+    color: var(--tertiary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--tertiary-bg-hover-color);
+    transform: translateY(-1px) scale(1.5);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+}
+
+button:active {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+}
+
+
+.section,
+.card {
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.card:hover,
+.section:hover {
+    background-color: var(--secondary-bg-hover-color);
+    border-color: var(--border-color-hover-color);
+    transform: translateY(-2px);
+}
+
+.active{
+    background-color: var(--secondary-bg-color) !important;
+    color: var(--tertiary-color) !important;
+}
+
+.active:hover{
+    background-color: #242d49 !important;
+    color: var(--tertiary-color) !important;
+
+}
