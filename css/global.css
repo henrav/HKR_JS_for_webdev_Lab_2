@@ -658,6 +658,20 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     z-index: 1;
 }
 
+.char-count{
+    position: static;
+    display: block;
+    background-color: #fafafa;
+    color: black;
+    padding: 0.2rem 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    z-index: 1;
+    width: fit-content;
+    margin-left: auto;
+}
+
 
 
 

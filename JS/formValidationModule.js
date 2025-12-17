@@ -1,4 +1,5 @@
 
+
 class FormFields {
     constructor() {
         this.name = document.getElementById("name");
@@ -20,16 +21,19 @@ class FormFields {
         if (this.name) this.attach(this.name, validateName );
         if (this.email) this.attach(this.email, validateEmail)
         if (this.subject) this.attach(this.subject, validateSubject)
-        if (this.message) this.attach(this.message, validateMessage)
+        if (this.message) this.attach(this.message, validateMessage, increaseCount)
         if (this.form) this.onSubmit();
     }
 
-    attach(element, validatorFunc){
+    attach(element, validatorFunc, optionalFunc = null){
         element.addEventListener("input", () => {
             const value = element.value.trim();
             let valid = validatorFunc(value);
             if (valid) removeError(element);
             setColor(element, value ? valid : null)
+            if (optionalFunc != null){
+                optionalFunc();
+            }
         })
     }
 
@@ -59,10 +63,11 @@ const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const validateSubject = (v) => v.length >= 3;
 const validateMessage = (v) => v.length >= 20;
 
-class FormValidator{
-    constructor() {}
-
-
+function increaseCount() {
+    const message = document.getElementById('message');
+    const charCount = document.getElementById('char-count');
+    const length = message.value.trim().length;
+    charCount.innerText = `${length === 0 ? 0 : length}/20`;
 }
 
 
