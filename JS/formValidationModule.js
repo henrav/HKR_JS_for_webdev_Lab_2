@@ -9,10 +9,10 @@ class FormFields {
     }
     fieldRules() {
         return [
-            { el: this.name,    validate: validateName,    required: true },
-            { el: this.email,   validate: validateEmail,   required: true },
-            { el: this.subject, validate: validateSubject, required: true },
-            { el: this.message, validate: validateMessage, required: true },
+            { el: this.name,    validate: validateName,    required: true, errorMessage: "Name is required, at least 2 chars" },
+            { el: this.email,   validate: validateEmail,   required: true, errorMessage: "Email is required, eg: din@mail.se"  },
+            { el: this.subject, validate: validateSubject, required: true, errorMessage: "Subject is required, at least 3 chars"  },
+            { el: this.message, validate: validateMessage, required: true, errorMessage: "Message is required, at least 20 chars"  },
         ].filter(r => r.el);
     }
 
@@ -24,21 +24,25 @@ class FormFields {
         if (this.form) this.onSubmit();
     }
 
-    attach(element, validatorFunc, required = false){
+    attach(element, validatorFunc){
         element.addEventListener("input", () => {
             const value = element.value.trim();
-            setColor(element, value ? validatorFunc(value) : null)
+            let valid = validatorFunc(value);
+            if (valid) removeError(element);
+            setColor(element, value ? valid : null)
         })
     }
 
     validateAll(){
         let allValid = true;
-        for (const {el, validate, required} of this.fieldRules()){
+        for (const {el, validate, required, errorMessage} of this.fieldRules()){
             const value = el.value.trim();
             const valid = value === "" ? required ? false : null : validate(value);
             setColor(el, valid);
-            if (valid === false) allValid = false;
-            setError(el, "tjena")
+            if (valid === false){
+                allValid = false;
+                setError(el, errorMessage )
+            }
         }
         return allValid;
     }
@@ -51,8 +55,9 @@ class FormFields {
 }
 const validateName = (v) => v.length >= 2;
 const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
 const validateSubject = (v) => v.length >= 3;
-const validateMessage = (v) => v.length >= 10;
+const validateMessage = (v) => v.length >= 20;
 
 class FormValidator{
     constructor() {}
@@ -84,16 +89,19 @@ function setColor (element, valid) {
 }
 
 
-function setError(element, message){
-    const errorMessage = document.createElement("span");
-    errorMessage.classList.add("error-message")
+function setError(el, message) {
+    removeError(el);
+    const errorMessage = document.createElement("div");
+    errorMessage.classList.add("error-message");
     errorMessage.innerText = message;
-    errorMessage.id = element.
-    element.appendChild(errorMessage);
+    el.parentNode.insertBefore(errorMessage, el.nextSibling);
 }
 
-function removeSpan(element){
-    element.removeChild(d)
+function removeError(el) {
+    const next = el.nextSibling;
+    if (next && next.classList && next.classList.contains("error-message")) {
+        next.remove();
+    }
 }
 
 

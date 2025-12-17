@@ -555,8 +555,15 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: var(--primary-color);
 }
 
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 1px solid var(--tertiary-bg-color);
+    outline-offset: 0;
+}
+
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     padding: 0.5rem 0.75rem;
     border-radius: 0;
     border: 1px solid var(--border-color);
@@ -564,14 +571,24 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: inherit;
     font: inherit;
     box-sizing: border-box;
-
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: 1px solid var(--tertiary-bg-color);
-    outline-offset: 0;
+.form-group input:-webkit-autofill,
+.form-group textarea:-webkit-autofill,
+.form-group select:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group textarea:-webkit-autofill:hover,
+.form-group select:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group textarea:-webkit-autofill:focus,
+.form-group select:-webkit-autofill:focus {
+    border: 1px solid var(--border-color);
+    -webkit-text-fill-color: white;
+    caret-color: currentColor;
+    -webkit-box-shadow: 0 0 0 1000px var(--secondary-bg-color) inset;
+    box-shadow: 0 0 0 1000px var(--secondary-bg-color) inset;
 }
+
 
 
 .contact-button {
@@ -629,11 +646,16 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 }
 
 
-.error-message{
+.error-message {
+    position: relative;
     display: block;
-    background-color: red;
-    padding: 5rem;
-    color: black;
+    background-color: #f87171;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    z-index: 1;
 }
 
 

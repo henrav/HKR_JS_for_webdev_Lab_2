@@ -137,7 +137,7 @@ button {
 
 button:hover {
     background-color: var(--tertiary-bg-hover-color);
-    transform: translateY(-1px) scale(1.5);
+    transform: translateY(-1px) scale(1.03);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 
 }
