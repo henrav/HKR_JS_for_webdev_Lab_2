@@ -885,7 +885,6 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin-top: 1rem;
     position: sticky;
     top: 1rem;
-    width: fit-content;
     padding: 2rem 1rem 1rem;
     background: var(--secondary-bg-color);
     min-height: 300px;
@@ -893,15 +892,15 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin-right: 3rem;
     gap: 1rem;
     border: 1px solid var(--border-color);
-
+    width: 8rem;
     align-items: center;
 }
 .settings-btn{
-    width: fit-content;
     font-weight: 700;
     text-decoration: none;
     letter-spacing: .02em;
     border: 1px solid var(--border-color);
+    width: 100%;
 }
 
 .interactive-container{
