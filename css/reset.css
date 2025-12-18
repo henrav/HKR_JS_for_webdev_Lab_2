@@ -60,10 +60,10 @@ table {
     --quaternary-bg-hover-color:   #0d9488;
 
     --border-color:      #23283a;
-    --muted-text-color:  #9ca3b8;
+    --muted-text-color: #dee1ec;
     --danger-color:      #f97373;
     --border-color-hover-color:    #3a425e;
-    --muted-text-hover-color:      #e5e7f5;
+    --muted-text-hover-color: #ffffff;
     --danger-hover-color:          #fb4c4c;
 
     --star-size: 50%;
@@ -148,21 +148,7 @@ button:active {
 }
 
 
-.section,
-.card {
-    background-color: var(--secondary-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1.5rem;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
-}
 
-.card:hover,
-.section:hover {
-    background-color: var(--secondary-bg-hover-color);
-    border-color: var(--border-color-hover-color);
-    transform: translateY(-2px);
-}
 
 .active{
     background-color: var(--secondary-bg-color) !important;
