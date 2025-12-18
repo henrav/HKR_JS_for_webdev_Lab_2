@@ -6,25 +6,62 @@
         C:"C",
         Cpp: "C++"
     }
-    const elements =[
+    const buttons = {
+        webBtn: null,
+        cBtn: null,
+        cppBtn: null,
+        javaBtn: null
+    }
 
-    ]
+    const elements =[]
 
     window.addEventListener("DOMContentLoaded", () =>{
         const el = document.getElementById("article_ID");
         loadCards(el);
+        initBtns();
     })
 
     function loadCards(el){
         for (let i = 0; i < projects.length; i++){
-            el.innerHTML += getCard(projects[i]);
-            elements.push(el);
+            const element = getCard(projects[i]);
+            el.insertAdjacentHTML("beforeend", element);
+
+            elements.push(el.lastElementChild);
+        }
+    }
+
+    function initBtns(){
+        buttons.webBtn = document.getElementById("webDev");
+        buttons.cBtn = document.getElementById("cBtn");
+        buttons.cppBtn = document.getElementById("cppBtn");
+        buttons.javaBtn = document.getElementById("javaBtn");
+        for (const key in buttons){
+            const b = buttons[key];
+            if (b) b.addEventListener("click", () =>{
+                filterProjects(b.dataset.category);
+            })
+        }
+    }
+
+    function filterProjects(category) {
+        console.log(category);
+
+        for (let i = 0; i < elements.length; i++){
+            const el = elements[i];
+
+            console.log(el.dataset.category);
+
+            if (el.dataset.category === category) {
+                el.style.display = "flex";
+            } else {
+                el.style.display = "none";
+            }
         }
     }
 
 
     function getCard(project) {
-        return `<div class="card" id="card-${project.id}" datatype="${project.category}">
+        return `<div class="card" id="card-${project.id}" data-category="${project.category}">
             <header class="card_header">
                 <h2 class="card_title">${project.title}</h2>
                 <p class="card_subtitle">${project.description}</p>
