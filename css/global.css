@@ -10,6 +10,7 @@ footer{
     align-items: center;
     background-color: var(--secondary-bg-color);
     justify-content: center;
+    width: 100%;
 }
 footer p{
     margin: 0;
@@ -17,16 +18,25 @@ footer p{
 
 main{
     padding: 2vh;
-    width: fit-content;
     margin: 1vh auto;
     background-color: var(--secondary-bg-color);
     height: 79.5vh;
     min-height: fit-content;
     box-sizing: border-box;
-
-    max-width: 1200px;
+    max-width: min(1200px, 20vw);
 }
 
+html{
+    min-width: fit-content;
+    width: 100vw;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
 
 /*HEADER STUFF HEADER STUFF HEADER STUFF HEADER STUFF */
 /*HEADER STUFF HEADER STUFF HEADER STUFF HEADER STUFF */
@@ -725,6 +735,50 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
 
 
+.interactive-article{
+    width: min(1100px, 90vw);
+    margin: 0 auto;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.pill-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card_body picture{
+    display: block;
+    padding: 1rem;
+    width: min(900px, 80vw);
+    height: min(900px, 50vh);
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 6px black;
+}
+.card_body picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
 @media screen and (max-width: 1100px) {
 
 
@@ -775,13 +829,9 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
 @media screen and (max-width: 925px) {
 
+    main{padding: 0.5rem}
 
 
-
-    main{
-
-        padding: 0.5rem;
-    }
     .projects-article{
         padding: 0.25rem;
     }
