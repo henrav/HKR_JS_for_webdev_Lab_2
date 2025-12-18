@@ -1,86 +1,138 @@
 
-
-class FormFields {
-    constructor() {
-        this.name = document.getElementById("name");
-        this.email = document.getElementById("email");
-        this.subject = document.getElementById("subject");
-        this.message = document.getElementById("message");
-        this.form = document.getElementById("form");
-    }
-    fieldRules() {
-        return [
-            { el: this.name,    validate: validateName,    required: true, errorMessage: "Name is required, at least 2 chars" },
-            { el: this.email,   validate: validateEmail,   required: true, errorMessage: "Email is required, eg: din@mail.se"  },
-            { el: this.subject, validate: validateSubject, required: true, errorMessage: "Subject is required, at least 3 chars"  },
-            { el: this.message, validate: validateMessage, required: true, errorMessage: "Message is required, at least 20 chars"  },
-        ].filter(r => r.el);
-    }
-
-    attachListeners(){
-        if (this.name) this.attach(this.name, validateName );
-        if (this.email) this.attach(this.email, validateEmail)
-        if (this.subject) this.attach(this.subject, validateSubject)
-        if (this.message) this.attach(this.message, validateMessage, increaseCount)
-        if (this.form) this.onSubmit();
-    }
-
-    attach(element, validatorFunc, optionalFunc = null){
-        element.addEventListener("input", () => {
-            const value = element.value.trim();
-            let valid = validatorFunc(value);
-            if (valid) removeError(element);
-            setColor(element, value ? valid : null)
-            if (optionalFunc != null){
-                optionalFunc();
-            }
-        })
-    }
-
-    validateAll(){
-        let allValid = true;
-        for (const {el, validate, required, errorMessage} of this.fieldRules()){
-            const value = el.value.trim();
-            const valid = value === "" ? required ? false : null : validate(value);
-            setColor(el, valid);
-            if (valid === false){
-                allValid = false;
-                setError(el, errorMessage )
-            }
-        }
-        return allValid;
-    }
-
-    onSubmit() {
-        this.form.addEventListener("submit", (e) => {
-            if (!this.validateAll()) e.preventDefault();
-        });
-    }
-}
-const validateName = (v) => v.length >= 2;
+const validateName = (v) => /^[A-Za-zÅÄÖåäö\s-]{2,}$/.test(v);
 const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 const validateSubject = (v) => v.length >= 3;
-const validateMessage = (v) => v.length >= 20;
+const validateMessage = (v) => {
+    increaseCount(v.length)
+    return v.length >= 20;
+}
 
-function increaseCount() {
-    const message = document.getElementById('message');
-    const charCount = document.getElementById('char-count');
-    const length = message.value.trim().length;
-    charCount.innerText = `${length === 0 ? 0 : length}/20`;
+
+
+const elements = {
+    name: null,
+    email: null,
+    subject: null,
+    message: null,
+    form: null,
+    resetBtn: null,
+    charCount: null,
+    successHost: null,
+    successTimeoutId: null
+}
+
+const rules =[
+    { el: "name",    validate: validateName,     errorMessage: "Namn behövs, åtminstone 2 tecken" },
+    { el: "email",   validate: validateEmail,    errorMessage: "Email behövs åtminstone, t.ex: din@mail.se"  },
+    { el: "subject", validate: validateSubject,  errorMessage: "Ämne behövs, åtminstone 3 tecken"  },
+    { el: "message", validate: validateMessage,  errorMessage: "Meddelande behövs, åtminstone"  }
+]
+
+function initElements(){
+    elements.name = document.getElementById("name");
+    elements.email = document.getElementById("email");
+    elements.subject = document.getElementById("subject");
+    elements.message = document.getElementById("message");
+    elements.form = document.getElementById("form");
+    elements.resetBtn = document.getElementById("reset-form");
+    elements.charCount = document.getElementById("char-count");
+    elements.successHost = document.getElementById("success-message");
+}
+
+function init(){
+    initElements();
+    attachValidation();
+    attachSubmit();
+    attachReset();
+    elements.successHost?.addEventListener("click", (e) => {
+        if (e.target.classList.contains("bg-blur")) elements.successHost.innerHTML = "";
+    });
+}
+
+function attachValidation(){
+    for (const rule of rules){
+        const element = elements[rule.el]
+        if (!element) continue;
+        element.addEventListener("input", () =>{
+            const value = element.value.trim();
+            let valid = rule.validate(value);
+            //nooone likes errors they cant remove
+            if (value === "" || valid) removeError(element) // if empty or valid remove error
+            setColor(element, value ? valid : null)// if empty or valid remove error
+        })
+    }
+}
+
+function attachSubmit() {
+    if (!elements.form) return;
+
+    elements.form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!validateAll()) return;
+        const firstName = (elements.name?.value.trim().split(/\s+/)[0] || "");
+        showSuccess(firstName);
+        resetForm();
+    });
+}
+
+
+function attachReset() {
+    if (!elements.resetBtn) return;
+    elements.resetBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        resetForm();
+    });
+}
+
+
+function validateAll(){
+    let allOk = true;
+    for (const rule of rules){
+        const element = elements[rule.el];
+        if (!element) continue;
+        const value = element.value.trim();
+        const valid = value === "" ? (rule.required ? false : null) : rule.validate(value);
+        setColor(element, valid);
+        if (valid === false) {
+            allOk = false;
+            setError(element, rule.errorMessage);
+        } else {
+            removeError(element);
+        }
+    }
+    return allOk;
+}
+
+function resetForm() {
+    for (const rule of rules) {
+        const element = elements[rule.el];
+        if (!element) continue;
+        element.value = "";
+        setColor(element, null);
+        removeError(element);
+    }
+
+    if (elements.charCount) {
+        elements.charCount.innerText = "0/20";
+        elements.charCount.className = "char-count";
+    }
 }
 
 
 
 
+function increaseCount(v) {
+    const charCount = document.getElementById('char-count');
+    if (v >= 20){
+        charCount.innerText = "20/20";
+        charCount.classList.add("char-count-reached");
+    }else{
+        charCount.innerText = `${v === 0 ? 0 : v}/20`;
+        charCount.classList = "char-count";
+    }
+}
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const fields = new FormFields();
-    fields.attachListeners();
-
-
-});
 
 
 
@@ -103,10 +155,30 @@ function setError(el, message) {
 }
 
 function removeError(el) {
-    const next = el.nextSibling;
-    if (next && next.classList && next.classList.contains("error-message")) {
-        next.remove();
-    }
+    const next = el.nextElementSibling;
+    if (next && next.classList.contains("error-message")) next.remove();
+}
+
+function showSuccess(firstName) {
+    console.log(firstName);
+    const el = document.getElementById("success-message");
+    if (!el) return;
+    el.innerHTML = getTyMessage(firstName);
+    setTimeout(() =>{
+        el.innerHTML = "";
+
+    }, 4000)
+}
+
+function getTyMessage(firstName){
+    return `
+            <div class="bg-blur"></div>
+            <div class="success-message">
+                <p>Tack så mycket ${firstName}
+            </div>
+    `;
 }
 
 
+
+document.addEventListener("DOMContentLoaded", init);

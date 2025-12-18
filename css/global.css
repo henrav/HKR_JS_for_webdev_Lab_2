@@ -667,14 +667,60 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin-top: 0.25rem;
     border-radius: 4px;
     font-size: 0.95rem;
-    z-index: 1;
+
     width: fit-content;
     margin-left: auto;
 }
 
+.char-count-reached{
+    background-color: #069f00;
+    color: white ;
+}
 
+.reset-form-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--tertiary-bg-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
+.bg-blur {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 9998;
+}
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(11, 110, 250);
+    width: min(25rem, 90vw);
+    min-height: 5rem;
+    padding: 1rem;
+
+    z-index: 9999;
+    border-radius: 8px;
+}
+
+.success-message p {
+    margin: 0;
+    color: white;
+    text-align: center;
+}
 
 
 
