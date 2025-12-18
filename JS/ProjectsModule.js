@@ -1,5 +1,6 @@
     import { projectsData} from "./projectData.js";
     const projects = projectsData;
+
     window.addEventListener("DOMContentLoaded", () =>{
         const el = document.getElementById("article_ID");
         loadCards(el);

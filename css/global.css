@@ -25,6 +25,7 @@ main{
     padding: 2rem;
     max-width: 1200px;
     margin: 1rem auto;
+    border: 1px solid var(--border-color);
 
 }
 main > aside{
@@ -879,14 +880,28 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 }
 
 .settings-box{
+    display: flex;
+    flex-direction: column;
     margin-top: 1rem;
     position: sticky;
     top: 1rem;
-    min-width: 300px;
+    width: fit-content;
+    padding: 2rem 1rem 1rem;
     background: var(--secondary-bg-color);
     min-height: 300px;
     margin-left: 1rem;
     margin-right: 3rem;
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+
+    align-items: center;
+}
+.settings-btn{
+    width: fit-content;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .02em;
+    border: 1px solid var(--border-color);
 }
 
 .interactive-container{
@@ -894,8 +909,8 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     grid-template-columns: 1fr auto  1fr;
     grid-template-areas: "asd main aside";
     background-color: var(--primary-bg-color);
-
 }
+
 
 
 
