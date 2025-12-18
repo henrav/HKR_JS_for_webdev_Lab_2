@@ -1,13 +1,13 @@
 
-export const projects = [
+export const projectsData = [
     {
         id: 1,
         title: "Portfolio Website",
         description: "My personal portfolio built with HTML, CSS, and JavaScript",
         category: "Web Development",
         technologies: ["HTML", "CSS", "JavaScript"],
-        image: "images/project1.jpg",
-        link: "https://example.com"
+        image: "Images/project1.png",
+        link: "../index.html"
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const projects = [
         description: "First website created for school project, very bad, behind login wall so noone can access",
         category: "Web Development",
         technologies: ["HTML", "CSS", "JavaScript", "React", "Node.js", "express.js", "SQL"],
-        image: "images/project2.jpg",
+        image: "Images/project2.png",
         link: "https://aiwebbexam.se"
     },
     {
@@ -24,16 +24,16 @@ export const projects = [
         description: "A Unix 'cal'-style CLI calendar written in C. Supports printing a full year (-y) and selecting month (-m), selecting span (-s) and selecting width (-w)",
         category: "C",
         technologies: ["C"],
-        image: "images/project3.jpg",
+        image: "Images/project3.png",
         link: "https://github.com/henrav/HKR_UnixCal_DT555B"
     },
     {
         id: 4,
         title: "budget_Junit",
-        description: "A small budget Junit exercise to refresh Java knowledge",
+        description: "A budget 'Junit' lib, simple exercise to refresh Java knowledge",
         category: "Java",
         technologies: ["Java", "Shell", "Junit"],
-        image: "images/project2.jpg",
+        image: "Images/project4.png",
         link: "https://github.com/henrav/budget_Junit"
     },
     {
@@ -42,7 +42,7 @@ export const projects = [
         description: "A budget Java project for experimenting with creating a SQL parser. Current project.",
         category: "Java",
         technologies: ["Java", "SQL"],
-        image: "images/project5.jpg",
+        image: "Images/project5.png",
         link: "https://github.com/henrav/budgetJavaSQLParserTest",
     },
     {
@@ -51,7 +51,7 @@ export const projects = [
         description: "Some unfinished C++ game",
         category: "C++",
         technologies: ["C++", "SFML"],
-        image: "images/project5.jpg",
+        image: "Images/project6.png",
         link: "https://github.com/henrav/Spel-",
     },
 ];
