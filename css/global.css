@@ -17,14 +17,25 @@ footer p{
 }
 
 main{
-    padding: 2vh;
-    margin: 1rem auto;
+    overflow: visible;
     background-color: var(--secondary-bg-color);
     height: 79.5vh;
     min-height: fit-content;
     box-sizing: border-box;
-    max-width: min(1200px, 20vw);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 1rem auto;
 
+}
+main > aside{
+    order: 2;
+    flex: 0 0 260px;   /* sidebar-bredd */
+}
+
+main > article{
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 html{
@@ -103,13 +114,7 @@ nav label {
 /* MAIN BODY */
 /* MAIN BODY */
 /* MAIN BODY */
-main{
-    padding: 2rem;
-    box-sizing: border-box;
-    max-width: 1200px;
-    margin: 1rem auto;
-    background-color: var(--secondary-bg-color);
-}
+
 
 .homepage-article{
 
@@ -351,8 +356,9 @@ main{
 
 /*MY PICTURES */
 .picture-article{
-    width: min(900px, 90vw);
     height: fit-content;
+    margin:1rem;
+    width: fit-content;
 }
 
 .picture-grid {
@@ -361,7 +367,7 @@ main{
     gap: 1vw;
     justify-items: center;
     align-items: center;
-
+    width: fit-content;
 }
 
 .polaroid {
@@ -778,6 +784,9 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: var(--primary-color);
     font-size: 1.5rem;
     letter-spacing: -0.02em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
 }
 
 .card_subtitle{
@@ -785,6 +794,8 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: var(--muted-text-color);
     text-decoration: none;
     line-height: 1.45;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .picture-container{
@@ -867,7 +878,24 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     background: transparent;
 }
 
+.settings-box{
+    margin-top: 1rem;
+    position: sticky;
+    top: 1rem;
+    min-width: 300px;
+    background: var(--secondary-bg-color);
+    min-height: 300px;
+    margin-left: 1rem;
+    margin-right: 3rem;
+}
 
+.interactive-container{
+    display: grid;
+    grid-template-columns: 1fr auto  1fr;
+    grid-template-areas: "asd main aside";
+    background-color: var(--primary-bg-color);
+
+}
 
 
 
@@ -1012,7 +1040,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
     .picture-grid{
         grid-template-columns: repeat(1, 1fr);
-
+        gap: 1rem   ;
     }
     .picture-grid img{
         width: min(80vw, 300px);

@@ -30,7 +30,7 @@
                 ${getPills(project.technologies)}
             </div>
             <footer class="card_footer">
-                <a class="btn" href="">Kolla mer</a>
+                <a class="btn" href="">Förstora</a>
                 <a class="btn btn--ghost" href="${project.link}">Link</a>
             </footer>
         </div>`;
