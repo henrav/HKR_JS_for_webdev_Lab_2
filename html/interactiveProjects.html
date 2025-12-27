@@ -22,15 +22,15 @@
             <li><a href="interactiveProjects.html" class="active">Projekt</a></li>
             <li><a href="myPictures.html">Mina bilder</a></li>
             <li><a href="contactMe.html">Kontakta mig</a></li>
+            <li><button class="theme-button" id="dark-theme">Dark theme</button></li>
+            <li><button class="theme-button" id="light-theme">Light theme</button></li>
         </ul>
     </nav>
 </header>
 
-<div class="interactive-container">
+<div class="interactive-container" id="interactive-container">
     <main style="grid-area: main">
-
         <article class="interactive-article" id ="article_ID" >
-
         </article>
     </main>
     <aside style="grid-area: aside">
@@ -39,16 +39,17 @@
             <button class="settings-btn" id="cBtn" data-category="C">C</button>
             <button class="settings-btn" id="cppBtn" data-category="C++">C++</button>
             <button class="settings-btn" id="javaBtn" data-category="Java">Java</button>
-            <h3>showing 6/6</h3>
+            <div class="count" id="count">Showing 6/6</div>
         </div>
     </aside>
 </div>
-
 <footer>
     <p>
         &copy; 2025 Alla rättigheter förbehållna.
     </p>
 </footer>
+<script type="module" src="../JS/UIThemeModule.js"></script>
+
 <script type="module" src="../JS/ProjectsModule.js"></script>
 </body>
 </html>

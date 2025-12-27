@@ -23,6 +23,8 @@
             <li><a href="interactiveProjects.html">Projekt</a></li>
             <li ><a href="myPictures.html" class="active">Mina bilder</a></li>
             <li><a href="contactMe.html">Kontakta mig</a></li>
+            <li><button class="theme-button" id="dark-theme">Dark theme</button></li>
+            <li><button class="theme-button" id="light-theme">Light theme</button></li>
         </ul>
     </nav>
 </header>
@@ -35,7 +37,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/burj.jpg" alt="Photo from Burj in Dubai">
+                    <img src="../Images/burj.jpg" alt="Photo from Burj in Dubai" loading="lazy" >
                     <label for="polaroid-toggle-1">Burj, Dubai</label>
                     <input id="polaroid-toggle-1" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -48,7 +50,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/croatia.jpg" alt="picture from croatia">
+                    <img src="../Images/croatia.jpg" alt="picture from croatia" loading="lazy">
                     <label for="polaroid-toggle-2">Croatia</label>
                     <input id="polaroid-toggle-2" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -61,7 +63,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/desert.jpg" alt="Desert landscape with sand dunes">
+                    <img src="../Images/desert.jpg" alt="Desert landscape with sand dunes" loading="lazy">
                     <label for="polaroid-toggle-3">The desert</label>
                     <input id="polaroid-toggle-3" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -74,7 +76,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/dubrovnik.jpg" alt="View over the old town of Dubrovnik">
+                    <img src="../Images/dubrovnik.jpg" alt="View over the old town of Dubrovnik" loading="lazy">
                     <label for="polaroid-toggle-4">Dubrovnik</label>
                     <input id="polaroid-toggle-4" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -87,7 +89,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/grand.jpeg" alt="Photo of the Grand Canyon in the USA">
+                    <img src="../Images/grand.jpeg" alt="Photo of the Grand Canyon in the USA" loading="lazy">
                     <label for="polaroid-toggle-5">Grand Canyon</label>
                     <input id="polaroid-toggle-5" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -100,7 +102,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/Hoover-dam.JPG" alt="Photo of the Hoover Dam">
+                    <img src="../Images/Hoover-dam.JPG" alt="Photo of the Hoover Dam" loading="lazy">
                     <label for="polaroid-toggle-6">Hoover Dam</label>
                     <input id="polaroid-toggle-6" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -113,7 +115,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/gibraltar.JPG" alt="Photo taken at the Rock of Gibraltar">
+                    <img src="../Images/gibraltar.JPG" alt="Photo taken at the Rock of Gibraltar" loading="lazy">
                     <label for="polaroid-toggle-7">Gibraltar</label>
                     <input id="polaroid-toggle-7" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -126,7 +128,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/italy.jpg" alt="Photo of italian alps">
+                    <img src="../Images/italy.jpg" alt="Photo of italian alps" loading="lazy">
                     <label for="polaroid-toggle-8">Italian alps</label>
                     <input id="polaroid-toggle-8" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -139,7 +141,7 @@
 
             <div class="polaroid-container">
                 <div class="polaroid">
-                    <img src="../Images/italy-coast.jpg" alt="Coastal view in Italy with sea and cliffs">
+                    <img src="../Images/italy-coast.jpg" alt="Coastal view in Italy with sea and cliffs" loading="lazy">
                     <label for="polaroid-toggle-9">Italian coast</label>
                     <input id="polaroid-toggle-9" type="radio" name="polaroid-open" class="polaroid-toggle">
                     <div class="container">
@@ -158,6 +160,7 @@
         &copy; 2025 Alla rättigheter förbehållna.
     </p>
 </footer>
+<script type="module" src="../JS/UIThemeModule.js"></script>
 
 </body>
 </html>

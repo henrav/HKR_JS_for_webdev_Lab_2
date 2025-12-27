@@ -166,7 +166,6 @@ function showSuccess(firstName) {
     el.innerHTML = getTyMessage(firstName);
     setTimeout(() =>{
         el.innerHTML = "";
-
     }, 4000)
 }
 
