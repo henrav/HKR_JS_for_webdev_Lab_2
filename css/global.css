@@ -1006,7 +1006,39 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 }
 .x:hover { cursor: pointer; }
 
+.settings-box-button-reset-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-color);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
 
+.reset-aside-button{
+    display: block;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+.hide-aside-button{
+    display: block;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+.show-aside-button{
+    display: block;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 
 @media screen and (max-width: 1200px) {
@@ -1025,7 +1057,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
         z-index: 100;
         margin-top: 1rem;
         max-width: fit-content;
-
+        touch-action: none;
 
     }
     .settings-box{
