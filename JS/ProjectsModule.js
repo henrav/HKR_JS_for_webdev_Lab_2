@@ -35,7 +35,7 @@
             state.buttons.push(document.getElementById("cppBtn"));
             state.buttons.push(document.getElementById("javaBtn"));
             state.buttons.forEach(b => {
-                b.addEventListener("click", () =>{
+                b.addEventListener("click", (e) =>{
                     toggleFilter(b)
                     showCount(state.activeCount);
                 })
@@ -60,7 +60,7 @@
         }
 
         function showFilterPopup(text, filter){
-            const el = document.getElementById("interactive-container")
+            const el = document.getElementById("aside")
             if (el.children.namedItem("popup")) el.removeChild(document.getElementById("popup"))
             const nyEl = getFilterPopup(text, filter);
             const cross = getCloseCross();
@@ -70,6 +70,7 @@
             })
             el.append(nyEl);
             setTimeout(() =>{
+                if (el.contains(nyEl))
                 el.removeChild(nyEl);
             }, 5000);
         }

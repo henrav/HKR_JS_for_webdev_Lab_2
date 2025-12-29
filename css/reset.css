@@ -45,11 +45,11 @@ table {
     --star-size: 50%;
     --font-family: sans-serif;
     --black: black;
-    --primary-bg-color: #070b18;
-    --primary-color: #ffffff;
+    --primary-bg-color: #121726;
+    --primary-color: rgba(255, 255, 255, 0.62);
     --primary-bg-hover-color: #0b1022;
 
-    --secondary-bg-color: #121726;
+    --secondary-bg-color: #070b18;
     --secondary-color: #cbd3f0;
     --secondary-bg-hover-color: #181d32;
 
@@ -70,7 +70,7 @@ table {
     --danger-color: #f97373;
     --danger-hover-color: #fb4c4c;
     --color-light-bk:  #0f172a;
-    --color-dark-bk: #dee1ec;
+    --color-dark-bk: #ffffff;
 }
 
 :root[data-theme="light"] {
@@ -101,7 +101,7 @@ table {
 
     --danger-color: #ef4444;
     --danger-hover-color: #dc2626;
-    --color-dark-bk: #dee1ec;
+    --color-dark-bk: #ffffff;
 }
 
 * { border-radius: 0.25rem; }
@@ -130,10 +130,10 @@ p, span {
 
 a {
     display: inline-block;
-    color: var(--primary-color);
+    color: var(--color-dark-bk);
+    font-weight: bold;
     text-decoration: none;
     font-family: var(--font-family);
-    padding: 0.2rem 0.4rem;
     transition: transform 0.2s ease, text-shadow 0.2s ease, background-color 0.2s ease;
 }
 
@@ -147,31 +147,30 @@ button, .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: .55rem .95rem;
-    border: 1px solid var(--border-color);
-    background: var(--tertiary-bg-color);
-    color: var(--primary-color);
-    font-weight: 700;
-    letter-spacing: .02em;
+    font-weight: bold;
     transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+    background: var(--tertiary-bg-color);
+    color: var(--color-dark-bk);
+    border: none;
+    font-size: inherit;
 }
 
-button:hover, .button:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.05);
+button:hover {
+    text-decoration: underline;
+    text-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+    transform: scale(1.05) !important;
+    transition: transform 0.2s ease !important;
+    background-color: var(--tertiary-bg-hover-color);
 }
 
-button:active, .button:active {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
 
 .active {
-    background-color: var(--black) !important;
-    color: var(--tertiary-color) !important;
-    box-shadow: 0 0 3px var(--tertiary-bg-color);
+    background-color: #2367ff !important;
+    filter:brightness(1.2) !important;
+    scale: 1.05;
+    border: 1px solid    #000000 !important;
 }
 
 .active:hover {
-    background-color: var(--secondary-bg-hover-color) !important;
-    color: var(--tertiary-color) !important;
+    background-color: #1a50cc !important;
 }

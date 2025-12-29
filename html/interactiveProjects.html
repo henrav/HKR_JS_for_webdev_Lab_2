@@ -29,12 +29,13 @@
 </header>
 
 <div class="interactive-container" id="interactive-container">
+
     <main style="grid-area: main">
         <article class="interactive-article" id ="article_ID" >
         </article>
     </main>
-    <aside style="grid-area: aside">
-        <div class="settings-box">
+    <aside style="grid-area: aside"  id="aside">
+        <div class="settings-box" >
             <button class="settings-btn" id="webDev" data-category="Web Development">Web dev</button>
             <button class="settings-btn" id="cBtn" data-category="C">C</button>
             <button class="settings-btn" id="cppBtn" data-category="C++">C++</button>
@@ -42,6 +43,7 @@
             <div class="count" id="count">Showing 6/6</div>
         </div>
     </aside>
+
 </div>
 <footer>
     <p>
@@ -51,5 +53,6 @@
 <script type="module" src="../JS/UIThemeModule.js"></script>
 
 <script type="module" src="../JS/ProjectsModule.js"></script>
+<script type="module" src="../JS/moveAside.js"></script>
 </body>
 </html>

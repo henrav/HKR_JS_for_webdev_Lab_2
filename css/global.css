@@ -78,34 +78,19 @@ nav ul li{
     max-height: fit-content;
     width: fit-content;
     color: var(--color-dark-bk);
-
-}
-
-
-nav ul li a{
-    color: var(--color-dark-bk);
-    font-weight: bold;
-    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
 
 }
 
 nav ul li button{
-    color: var(--color-dark-bk);
-    font-weight: bold;
-    display: inline-block;
-    border: none;
-    font-size: inherit;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+    padding: 0.4rem 0.5rem;
+
+}
+nav ul li a{
+    padding: 0.2rem 0.4rem;
 }
 
-nav ul li button:hover{
-    text-decoration: underline;
-    text-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
-    transform: scale(1.03) !important;
-    transition: transform 0.2s ease !important;
-    background-color: var(--tertiary-bg-hover-color);
-}
 
 nav ul li a:hover{
     text-decoration: underline;
@@ -385,20 +370,22 @@ nav label {
 .picture-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1vw;
+    gap: 2vw;
     justify-items: center;
     align-items: center;
     width: fit-content;
+    padding: 5px
 }
 
 .polaroid {
+    padding: 1rem 0.5rem 0.5rem;
+    background-color: var(--primary-bg-color);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: var(--secondary-bg-color);
     transition: transform 0.5s ease-out,
     filter 0.5s ease-in-out;
     transform-origin: center center;
@@ -410,7 +397,7 @@ nav label {
 .container {
     text-align: center;
     width: 100%;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--primary-bg-color);
     border-top-right-radius: 0;
     border-top-left-radius: 0
 }
@@ -448,7 +435,7 @@ img{
 }
 .polaroid label{
     width: 100%;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--primary-bg-color);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     justify-content: center;
@@ -481,7 +468,7 @@ img{
 
 .polaroid-container::before {
     content: "";
-    position: fixed;
+    positibtn fixed;
     inset: 0;
     background: rgba(0,0,0,0.5);
     opacity: 0;
@@ -500,6 +487,7 @@ img{
 
 .polaroid-container:has(.polaroid-toggle:checked){
     width: 100%;
+    margin-bottom: auto;
 }
 
 .polaroid:has(.polaroid-toggle:checked) label{
@@ -517,13 +505,17 @@ img{
     height: 100%;
     width: 100%;
 }
+
+
 .polaroid:has(.polaroid-toggle:checked) {
-    max-height: 20px;
     position: absolute;
     z-index: 13;
     transform: scale(1.2);
     filter: drop-shadow(0px 0px 20px black) ;
+    padding: 1rem;
+    height: fit-content     ;
 }
+
 
 .polaroid:has(.polaroid-toggle:checked) img {
     height: auto;
@@ -902,48 +894,47 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     align-items: center;
     justify-content: center;
     padding: .55rem .95rem;
-    border: 1px solid var(--border-color);
-    background: var(--tertiary-bg-color);
-    color: var(--color-dark-bk);
     font-weight: 700;
     text-decoration: none;
     letter-spacing: .02em;
     transition: transform 120ms ease, filter 120ms ease;
+     background: var(--tertiary-bg-color);
+     color: var(--color-dark-bk);
 }
 
-.btn:hover{
-    transform: translateY(-1px);
-    filter: brightness(1.05);
-}
 
 .btn--ghost{
     background: transparent;
-    color: var(--color-dark-bk);
+    color: var(--primary-color);
 }
 
 .settings-box{
+    position: sticky;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-    position: sticky;
     top: 1rem;
     padding: 2rem 1rem 1rem;
     background: var(--secondary-bg-color);
-    min-height: 300px;
     margin-left: 1rem;
     margin-right: 3rem;
     gap: 1rem;
     border: 1px solid var(--border-color);
     width: 8rem;
     align-items: center;
+    height: fit-content;
 }
 .settings-btn{
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: .02em;
-    border: 1px solid var(--border-color);
     width: 100%;
-    color: var(--color-dark-bk);
+    border:none;
+    padding: 0.4rem 0.5rem;
+
+}
+
+
+.settings-btn[class*="active"]{
+   box-shadow: 0 0 3px var(--primary-color);
+    scale: 1.1;
 }
 
 .interactive-container{
@@ -951,6 +942,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     grid-template-columns: 1fr auto  1fr;
     grid-template-areas: "asd main aside";
     background-color: var(--primary-bg-color);
+    position: relative;
 }
 
 .count{
@@ -966,10 +958,11 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     left: 50%;
     bottom: 1rem;
     transform: translateX(-50%);
-
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
     padding: 1rem 2rem;
-    width: fit-content;
-    max-width: 90vw;
+    width: min(300px, 90vw);
 
     background: var(--secondary-bg-color);
     border: 1px solid var(--border-color);
@@ -979,6 +972,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     font-weight: 900;
     font-size: 1.1rem;
     text-align: center;
+    z-index: 999;
 }
 
 .x {
@@ -1016,6 +1010,30 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
 
 @media screen and (max-width: 1200px) {
+
+    .interactive-container{
+        display: block;
+        flex-direction: column;
+    }
+    aside{
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: fit-content;
+        z-index: 100;
+        margin-top: 1rem;
+        max-width: fit-content;
+
+
+    }
+    .settings-box{
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
     nav ul{
         gap: 0.1rem;
         margin-right: 1rem;
@@ -1119,6 +1137,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
         position: fixed; top: 1.5rem; right: 2rem;
         margin: 0; padding: 0;
         width: auto; height: auto; z-index: 1000; display: block;
+        color: var(--primary-color) !important;
 
     }
 
@@ -1129,6 +1148,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
         user-select: none;
         line-height: 1; text-align: center;
         background: var(--tertiary-bg-color);
+        color: var(--tertiary-color) !important;
     }
     nav label:hover { var(--tertiary-bg-color-hover); }
 
