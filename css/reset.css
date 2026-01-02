@@ -71,6 +71,7 @@ table {
     --danger-hover-color: #fb4c4c;
     --color-light-bk:  #0f172a;
     --color-dark-bk: #ffffff;
+    --white-on-dark-dark-on-light: #ffffff;
 }
 
 :root[data-theme="light"] {
@@ -102,6 +103,8 @@ table {
     --danger-color: #ef4444;
     --danger-hover-color: #dc2626;
     --color-dark-bk: #ffffff;
+    --white-on-dark-dark-on-light: #000000;
+
 }
 
 * { border-radius: 0.25rem; }

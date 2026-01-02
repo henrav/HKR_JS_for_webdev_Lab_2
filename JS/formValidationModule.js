@@ -11,7 +11,8 @@ const validateMessage = (v) => {
 
 
 const elements = {
-    name: null,
+    firstName: null,
+    lastName: null,
     email: null,
     subject: null,
     message: null,
@@ -22,15 +23,20 @@ const elements = {
     successTimeoutId: null
 }
 
+
 const rules =[
-    { el: "name",    validate: validateName,     errorMessage: "Namn behövs, åtminstone 2 tecken" },
+    { el: "firstName",  validate: validateName,  errorMessage: "Namn behövs, åtminstone 2 tecken" },
+    { el: "lastName",   validate: validateName,  errorMessage: "Efternamn behövs, åtminstone 2 tecken"},
     { el: "email",   validate: validateEmail,    errorMessage: "Email behövs åtminstone, t.ex: din@mail.se"  },
     { el: "subject", validate: validateSubject,  errorMessage: "Ämne behövs, åtminstone 3 tecken"  },
     { el: "message", validate: validateMessage,  errorMessage: "Meddelande behövs, åtminstone"  }
 ]
 
+
+//add elements to elements state object
 function initElements(){
-    elements.name = document.getElementById("name");
+    elements.firstName = document.getElementById("firstName");
+    elements.lastName = document.getElementById("lastName");
     elements.email = document.getElementById("email");
     elements.subject = document.getElementById("subject");
     elements.message = document.getElementById("message");
@@ -50,8 +56,11 @@ function init(){
     });
 }
 
+//add validation to each input field
+//loop through rules, for each correspionding element in "elements" object, add input listener
 function attachValidation(){
     for (const rule of rules){
+        //eg rule.el = "firstName" -> elements["firstName"] -> elements.firstName
         const element = elements[rule.el]
         if (!element) continue;
         element.addEventListener("input", () =>{
@@ -64,19 +73,19 @@ function attachValidation(){
     }
 }
 
+//add listener for form submit, prevent default and validate all fields
 function attachSubmit() {
     if (!elements.form) return;
 
     elements.form.addEventListener("submit", (e) => {
         e.preventDefault();
         if (!validateAll()) return;
-        const firstName = (elements.name?.value.trim().split(/\s+/)[0] || "");
-        showSuccess(firstName);
+        showSuccess(elements.firstName.value.trim());
         resetForm();
     });
 }
 
-
+//add listener for reset button
 function attachReset() {
     if (!elements.resetBtn) return;
     elements.resetBtn.addEventListener("click", (e) => {
@@ -86,16 +95,19 @@ function attachReset() {
 }
 
 
+//validate all input fields in the form. Return true if all ok, false if any invalid
 function validateAll(){
     let allOk = true;
     for (const rule of rules){
+        //rule.el = "firstName" -> elements["firstName"] -> elements.firstName
         const element = elements[rule.el];
         if (!element) continue;
         const value = element.value.trim();
-        const valid = value === "" ? (rule.required ? false : null) : rule.validate(value);
-        setColor(element, valid);
+        //if empty, return false, else check if valid
+        const valid = value === "" ? false : rule.validate(value);
         if (valid === false) {
             allOk = false;
+            setColor(element, valid);
             setError(element, rule.errorMessage);
         } else {
             removeError(element);
@@ -103,6 +115,8 @@ function validateAll(){
     }
     return allOk;
 }
+
+
 
 function resetForm() {
     for (const rule of rules) {
@@ -120,8 +134,10 @@ function resetForm() {
 }
 
 
-
-
+/**
+ * Update character count for message field
+ * @param v - current length of message field
+ */
 function increaseCount(v) {
     const charCount = document.getElementById('char-count');
     if (v >= 20){
@@ -132,7 +148,6 @@ function increaseCount(v) {
         charCount.classList = "char-count";
     }
 }
-
 
 
 
@@ -154,10 +169,17 @@ function setError(el, message) {
     el.parentNode.insertBefore(errorMessage, el.nextSibling);
 }
 
+
+/**
+ * Remove error message next to the input field
+ * @param el
+ */
 function removeError(el) {
     const next = el.nextElementSibling;
     if (next && next.classList.contains("error-message")) next.remove();
 }
+
+
 
 function showSuccess(firstName) {
     console.log(firstName);
@@ -179,5 +201,5 @@ function getTyMessage(firstName){
 }
 
 
-
+//entry point
 document.addEventListener("DOMContentLoaded", init);

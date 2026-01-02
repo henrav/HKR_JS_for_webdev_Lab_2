@@ -37,8 +37,12 @@
 
         <form class="contact-form" action="mailto:henrik@ravnborg.se" method="post" enctype="text/plain" id="form">
             <div class="form-group">
-                <label for="name">Namn</label>
-                <input type="text" id="name" name="name"  placeholder="Ditt namn">
+                <label for="firstName">Förnamn</label>
+                <input type="text" id="firstName" name="firstName"  placeholder="Ditt förnamn">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Efternamn</label>
+                <input type="text" id="lastName" name="lastName"  placeholder="Ditt efternamn">
             </div>
 
             <div class="form-group">
@@ -57,8 +61,10 @@
                 <span id="char-count" class="char-count"> 0/20</span>
             </div>
 
-            <button type="submit" class="contact-button" id="submit_btn">Skicka</button>
-            <button type="button" class="reset-form-btn" id="reset-form">reset form</button>
+            <div class="form-footer">
+                <button type="submit" class="contact-button" id="submit_btn">Skicka</button>
+                <button type="button" class="reset-form-btn" id="reset-form">reset form</button>
+            </div>
 
         </form>
 

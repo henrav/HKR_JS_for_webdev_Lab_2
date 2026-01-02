@@ -1,24 +1,28 @@
+//module for moving aside on small screens when width < 1200px
+//module for moving aside on small screens when width < 1200px
+//module for moving aside on small screens when width < 1200px
+
+
 const state = {
     moving: false,
-    deltax: 0,
-    deltay: 0,
+    deltaX: 0,
+    deltaY: 0,
 };
 
 
 
 function moveAside(el, e) {
     el.style.position = "fixed";
-    el.style.top = `${e.clientY - state.deltay}px`;
-    el.style.left = `${(e.clientX - state.deltax)}px`;
+    el.style.top = `${e.clientY - state.deltaY}px`;
+    el.style.left = `${(e.clientX - state.deltaX)}px`;
     el.style.margin = "0";
-    console.log("x: " ,e.clientX - state.deltax, " y: ",e.clientY - state.deltay);
 }
 
 
 const calcDelta = (el, e) => {
     const r = el.getBoundingClientRect();
-    state.deltax = e.clientX - r.left;
-    state.deltay = e.clientY - r.top;
+    state.deltaX = e.clientX - r.left;
+    state.deltaY = e.clientY - r.top;
 }
 
 
@@ -29,10 +33,12 @@ const resetAside = (el) => {
     el.style.margin = "";
     el.style.gridArea = "aside";
 }
+
 function hideAside(el) {
     el.style.display = "none";
     genShowAsideButton();
 }
+
 function genShowAsideButton() {
     const btn = document.createElement("button");
     btn.id = "showAside";
@@ -51,20 +57,21 @@ function genShowAsideButton() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+    //get elements
     const el = document.getElementById("aside");
     const reset = document.getElementById("resetAside");
     const hide = document.getElementById("hideAside");
-    console.log("DOM loaded, aside =", el);
 
-    el.addEventListener("mousedown", () => console.log("DOWN on aside"));
-    window.addEventListener("mousemove", () => console.log("MOVE window"));
-    el.addEventListener("touchstart", () => console.log("DOWN on aside"));
-    window.addEventListener("touchmove", () => console.log("MOVE window"));
+    //add eventListeners
+
+    // reset position on resize if width > 1200px
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1200) {
             resetAside(el);
         }
     });
+
+    //mousedown and touchstart to start moving
     el.addEventListener("mousedown", (e) => {
         if (window.innerWidth > 1200) return;
         if (e.target.closest("button, a, input, textarea, select, label")) return;
@@ -78,6 +85,8 @@ window.addEventListener("DOMContentLoaded", () => {
         calcDelta(el, e.touches[0]);
     }, { passive: true });
 
+
+    //mouseup and touchend to stop moving
     window.addEventListener("mouseup", () => {
         state.moving = false;
     });
@@ -85,6 +94,8 @@ window.addEventListener("DOMContentLoaded", () => {
         state.moving = false;
     });
 
+
+    //mousemove and touchmove to move aside
     window.addEventListener("mousemove", (e) => {
         if (window.innerWidth > 1200) return;
         if (!state.moving) return;
@@ -95,13 +106,18 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!state.moving) return;
         moveAside(el, e.touches[0]);
     });
+
+
+    //reset button listener
     if (reset) reset.addEventListener("click", () => {
         resetAside(el);
     });
-
+    //hide button listener
     if (hide) hide.addEventListener("click", () => {
         hideAside(el);
     });
+
+
 
 });
 

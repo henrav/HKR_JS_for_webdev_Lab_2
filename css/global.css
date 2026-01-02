@@ -45,9 +45,9 @@ html{
 body{
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
     justify-content: center;
     align-items: center;
+    min-width: fit-content;
 }
 
 /*HEADER STUFF HEADER STUFF HEADER STUFF HEADER STUFF */
@@ -370,7 +370,7 @@ nav label {
 .picture-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
+    gap: 2rem;
     justify-items: center;
     align-items: center;
     width: fit-content;
@@ -412,8 +412,8 @@ nav label {
 img{
     display: block;
     object-fit: cover;
-    height: min(290px, 29vw);
-    width: min(290px, 29vw);
+    height: min(23vw, 300px);
+    width: min(23vw, 300px);
     margin-left: auto;
     margin-right: auto;
 }
@@ -559,7 +559,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
 .contact-article {
     width: min(700px, 90vw);
-    margin: 0 auto 2rem;
+    margin: 0 auto ;
     padding: 1.5rem;
     background-color: var(--primary-bg-color);
     border: 1px solid var(--border-color);
@@ -609,9 +609,9 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     border-radius: 0;
     border: 1px solid var(--border-color);
     background-color: var(--secondary-bg-color);
-    color: inherit;
     font: inherit;
     box-sizing: border-box;
+    color: var(--white-on-dark-dark-on-light);
 }
 
 .form-group input:-webkit-autofill,
@@ -624,7 +624,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 .form-group textarea:-webkit-autofill:focus,
 .form-group select:-webkit-autofill:focus {
     border: 1px solid var(--border-color);
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: var(--white-on-dark-dark-on-light);
     caret-color: currentColor;
     -webkit-box-shadow: 0 0 0 1000px var(--secondary-bg-color) inset;
     box-shadow: 0 0 0 1000px var(--secondary-bg-color) inset;
@@ -641,6 +641,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    width: 90%;
 }
 
 .contact-button:hover,
@@ -761,6 +762,16 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin: 0;
     color: white;
     text-align: center;
+}
+
+.form-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 0 1rem;
+
 }
 
 
@@ -1181,6 +1192,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
         line-height: 1; text-align: center;
         background: var(--tertiary-bg-color);
         color: var(--tertiary-color) !important;
+        font-weight: bold;
     }
     nav label:hover { var(--tertiary-bg-color-hover); }
 
