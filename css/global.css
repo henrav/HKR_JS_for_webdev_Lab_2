@@ -14,6 +14,7 @@ footer{
 }
 footer p{
     margin: 0;
+    color: var(--primary-color);
 }
 
 main{
@@ -614,6 +615,12 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     color: var(--white-on-dark-dark-on-light);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.form-group select::placeholder {
+    color: var(--place-holder-color);
+}
+
 .form-group input:-webkit-autofill,
 .form-group textarea:-webkit-autofill,
 .form-group select:-webkit-autofill,
@@ -665,15 +672,17 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     margin-top: 0.25rem;
 }
 
+
+
 .form-group input.valid-outline:focus,
 .form-group textarea.valid-outline:focus{
-    outline: 1px solid #069f00 !important;
+    outline: 2px solid #069f00 !important;
     outline-offset: 0 !important;
 }
 
 .form-group input.invalid-outline:focus,
 .form-group textarea.invalid-outline:focus{
-    outline: 1px solid #ef0000 !important;
+    outline: 2px solid #ef0000 !important;
     outline-offset: 0 !important;
 }
 
@@ -683,7 +692,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 }
 
 .invalid-outline{
-    outline: 1px solid #ef0000 !important;
+    outline: 2px solid #ef0000 !important;
     outline-offset: 0 !important;
 }
 
@@ -749,7 +758,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(11, 110, 250);
+    background-color: var(--tertiary-bg-color);
     width: min(25rem, 90vw);
     min-height: 5rem;
     padding: 1rem;
@@ -959,6 +968,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 .count{
     font-weight: 900;
     letter-spacing: .02em;
+    color: var(--primary-color);
 }
 
 .filter-applied{

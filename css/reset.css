@@ -46,7 +46,7 @@ table {
     --font-family: sans-serif;
     --black: black;
     --primary-bg-color: #121726;
-    --primary-color: rgba(255, 255, 255, 0.62);
+    --primary-color: rgb(255, 255, 255);
     --primary-bg-hover-color: #0b1022;
 
     --secondary-bg-color: #070b18;
@@ -72,13 +72,14 @@ table {
     --color-light-bk:  #0f172a;
     --color-dark-bk: #ffffff;
     --white-on-dark-dark-on-light: #ffffff;
+    --place-holder-color: #94a3b8;
 }
 
 :root[data-theme="light"] {
     --star-size: 50%;
     --font-family: sans-serif;
     --black: black;
-    --primary-bg-color: #ffffff;
+    --primary-bg-color: #fafaff;
     --primary-color: #0f172a;
     --primary-bg-hover-color: #f1f5f9;
 
@@ -104,7 +105,41 @@ table {
     --danger-hover-color: #dc2626;
     --color-dark-bk: #ffffff;
     --white-on-dark-dark-on-light: #000000;
+    --place-holder-color: #94a3b8;
 
+}
+
+:root[data-theme="pink"] {
+    --star-size: 50%;
+    --font-family: sans-serif;
+    --black: black;
+    --primary-bg-color: #fffafe;
+    --primary-color: #000000;
+    --primary-bg-hover-color: #f1f5f9;
+
+    --secondary-bg-color: #ffd6fa;
+    --secondary-color: #334155;
+    --secondary-bg-hover-color: #e2e8f0;
+
+    --tertiary-bg-color: #ff00d5;
+    --tertiary-color: #ffffff;
+    --tertiary-bg-hover-color: #de00b9;
+
+    --quaternary-bg-color: #14b8a6;
+    --quaternary-color: #042f2e;
+    --quaternary-bg-hover-color: #0d9488;
+
+    --border-color: #cbd5e1;
+    --border-color-hover-color: #94a3b8;
+
+    --muted-text-color: #28303b;
+    --muted-text-hover-color: #0f172a;
+
+    --danger-color: #ef4444;
+    --danger-hover-color: #dc2626;
+    --color-dark-bk: #ffffff;
+    --white-on-dark-dark-on-light: #000000;
+    --place-holder-color: #4d4d4d;
 }
 
 * { border-radius: 0.25rem; }
@@ -168,12 +203,12 @@ button:hover {
 
 
 .active {
-    background-color: #2367ff !important;
+    background-color: var(--tertiary-bg-color) !important;
     filter:brightness(1.2) !important;
     scale: 1.05;
     border: 1px solid    #000000 !important;
 }
 
 .active:hover {
-    background-color: #1a50cc !important;
+    background-color: var(--tertiary-bg-color) !important;
 }

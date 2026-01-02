@@ -9,13 +9,17 @@ window.addEventListener("DOMContentLoaded", () => {
 function addThemeListeners() {
     const lightTheme = document.getElementById("light-theme");
     const darkTheme = document.getElementById("dark-theme");
-
+    const pinkTheme = document.getElementById("pink-theme");
     lightTheme?.addEventListener("click", () => {
         applyTheme("light")
     });
 
     darkTheme?.addEventListener("click", () => {
         applyTheme("dark")
+    });
+
+    pinkTheme?.addEventListener("click", () => {
+        applyTheme("pink")
     });
 }
 
@@ -33,8 +37,13 @@ function toggleActiveClass(){
     if (currentTheme === "light"){
         lightTheme?.classList.add("active")
         darkTheme?.classList.remove("active")
-    } else {
+    }
+    if (currentTheme === "dark"){
         darkTheme?.classList.add("active")
+        lightTheme?.classList.remove("active")
+    }
+    if (currentTheme === "pink"){
+        darkTheme?.classList.remove("active")
         lightTheme?.classList.remove("active")
     }
 }
