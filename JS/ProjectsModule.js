@@ -96,7 +96,6 @@
                 el.removeChild(nyEl);
             })
             el.append(nyEl);
-            // auto remove popup after 5 seconds
             setTimeout(() =>{
                 if (el.contains(nyEl))
                 el.removeChild(nyEl);

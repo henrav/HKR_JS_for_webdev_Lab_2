@@ -201,5 +201,6 @@ function getTyMessage(firstName){
 }
 
 
+
 //entry point
 document.addEventListener("DOMContentLoaded", init);
