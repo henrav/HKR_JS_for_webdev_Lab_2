@@ -150,6 +150,11 @@ function increaseCount(v) {
         charCount.classList.add("redthing");
         charCount.innerText = `${v === 0 ? 0 : v}/40`;
     }
+    if (v === 0){
+        charCount.innerText = `0/40`;
+        charCount.classList = "char-count";
+        return;
+    }
     if (v < 20){
         charCount.innerText = `${v === 0 ? 0 : v}/40`;
         charCount.classList = "char-count";
