@@ -712,7 +712,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 .char-count{
     position: static;
     display: block;
-    background-color: #fafafa;
+    background-color: #fafafa !important;
     color: black;
     padding: 0.2rem 0.5rem;
     margin-top: 0.25rem;
@@ -724,7 +724,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 }
 
 .char-count-reached{
-    background-color: #069f00;
+    background-color: #069f00 !important;
     color: white ;
 }
 
@@ -1061,6 +1061,10 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
     font-weight: bold;
 }
 
+
+.redthing {
+    background-color: red !important;
+}
 
 @media screen and (max-width: 1200px) {
 
