@@ -6,7 +6,7 @@ const validateSubject = (v) => v.length >= 3;
 const validateMessage = (v) => {
 
     increaseCount(v.length)
-    return v.length >= 20;
+    return v.length >= 20 && v.length <= 40;
 }
 
 
@@ -141,12 +141,12 @@ function resetForm() {
  */
 function increaseCount(v) {
     const charCount = document.getElementById('char-count');
-    if (v >= 20 && v < 40){
+    if (v >= 20 && v <= 40){
         charCount.innerText = `${v === 0 ? 0 : v}/40`;
         charCount.classList.add("char-count-reached");
         charCount.classList.remove("redthing");
     }
-    if (v >= 40){
+    if (v > 40){
         charCount.classList.add("redthing");
         charCount.innerText = `${v === 0 ? 0 : v}/40`;
     }

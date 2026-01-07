@@ -1064,6 +1064,7 @@ body:has(.polaroid-toggle:checked:not(.none-toggle)) .backdrop {
 
 .redthing {
     background-color: red !important;
+    color: white;
 }
 
 @media screen and (max-width: 1200px) {
